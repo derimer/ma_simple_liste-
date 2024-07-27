@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>APP TO DO LIST</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="profil">
+        <div id="date"></div>
+        <h1>Ma petite liste</h1>
+        <span>Listez vos taches</span>
+      </div>
+      <div class="ajouter-tache">
+        <input type="text" id="input" placeholder="Ajoute une tâche" />
+        <i id="boton-enter" class="fas fa-plus-circle"></i>
+      </div>
+      <div class="liste-container">
+        <div class="section-tache">
+          <h3>A faire</h3>
+          <ul id="liste"></ul>
+        </div>
+        <div class="section-tache">
+          <h3>Terminé</h3>
+          <ul id="listeTerminer"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --white: #fafafb;
+  --purple: #9a67ea;
+  --blue-light: #04d4c3;
+  --blue-dark: #2a73c2;
+  --green: #2c7b90;
+}
+body {
+  background: linear-gradient(to bottom, var(--purple), var(--blue-light));
+  height: 100vh;
+  font-family: "Prompt", sans-serif;
+}
+.container {
+  max-width: none;
+  width: 30rem;
+  height: 25rem;
+  margin: 0 auto;
+}
+.profil h1 {
+  color: var(--white);
+}
+.profil span {
+  color: var(--white);
+  letter-spacing: 1px;
+}
+#date {
+  color: var(--white);
+  padding: 50px 0 5px 0px;
+}
+.ajouter-tache {
+  background-color: var(--white);
+  border-radius: 15px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  padding: 10px;
+  margin: 40px 0;
+}
+.ajouter-tache input {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--white);
+  padding-left: 10px;
+}
+.ajouter-tache input::placeholder {
+  font-size: 1.1rem;
+  color: var(--purple);
+}
+.ajouter-tache i {
+  font-size: 50px;
+  color: var(--purple);
+}
+.ajouter-tache i:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.section-tache h3 {
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.section-tache li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, var(--blue-dark), var(--green));
+  border-radius: 15px;
+  padding: 10px;
+  color: var(--white);
+  margin: 5px 0;
+}
+.section-tache i {
+  font-size: 25px;
+}
+.section-tache > ul p {
+  font-size: 1.2rem;
+}
+.section-tache i:hover {
+  color: var(--blue-light);
+  cursor: pointer;
+}
+.line-through {
+  text-decoration: line-through;
+  color: var(--blue-light);
+}
+#listeTerminer .text {
+  color: #888;
+}
+#listeTerminer li {
+  background: linear-gradient(to bottom, var(--blue-dark), var(--green));
+}
+#listeTerminer i {
+  color: var(--blue-light);
+}
+#listeTerminer i:hover {
+  color: var(--blue-dark);
+}
+.liste-container {
+  display: flex;
+  gap: 20px;
+}
+.section-tache {
+  flex: 1;
+}
+#liste {
+  margin-bottom: 20px;
+}
+.section-tache {
+  flex: 1;
+  max-width: 100%;
+}
+@media (max-width: 500px) {
+  .liste-container {
+    display: inline;
+    gap: 20px;
+  }
+  .container {
+    max-width: none;
+    width: 25rem;
+    height: 25rem;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 450px) {
+  .liste-container {
+    display: inline;
+    gap: 20px;
+  }
+  .container {
+    max-width: none;
+    width: 24rem;
+    height: 25rem;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 396px) {
+  .liste-container {
+    display: inline;
+    gap: 20px;
+  }
+  .container {
+    max-width: none;
+    width: 23rem;
+    height: 25rem;
+    margin: 0 auto;
+  }
+}
+/* Animation lors de la coche de la tâche */
+@keyframes checkAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation lors de la décoche de la tâche */
+@keyframes uncheckAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation lors du déplacement de la tâche vers la liste "Terminé" */
+@keyframes moveToTerminer {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+/* Animation lors du déplacement de la tâche vers la liste "To Do" */
+@keyframes moveToListToDo {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+/* Appliquer les animations aux éléments concernés */
+.section-tache li {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+/* Animation lors de la coche de la tâche */
+.section-tache li.checked {
+  animation-name: checkAnimation;
+}
+
+/* Animation lors de la décoche de la tâche */
+.section-tache li.unchecked {
+  animation-name: uncheckAnimation;
+}
+
+/* Animation lors du déplacement de la tâche vers la liste "Terminé" */
+.section-tache li.moveToTerminer {
+  animation-name: moveToTerminer;
+}
+
+/* Animation lors du déplacement de la tâche vers la liste "To Do" */
+.section-tache li.moveToListToDo {
+  animation-name: moveToListToDo;
+}
+#liste li.explode {
+  animation: explodeAnimation 0.3s ease-in-out;
+}
+
+#listeTerminer li.explode {
+  animation: explodeAnimation 0.3s ease-in-out;
+}
+@keyframes explodeAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.explode {
+  animation: explodeAnimation 0.3s ease-in-out;
+}
